@@ -16,6 +16,7 @@ Requires:	Zope-CMF >= 1.2
 Requires:	Zope >= 2.4
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	CMF
 
 %define 	product_dir	/usr/lib/zope/Products
 
