@@ -3,14 +3,14 @@
 Summary:	An issue collector for Zopei
 Summary(pl):	Dodatek do Zope umo¿liwiaj±cy zbieranie wyników
 Name:		Zope-%{zope_subname}
-Version:	0.9b
-Release:	8
+Version:	0.92
+Release:	1
 License:	ZPL 2.0
 Group:		Development/Tools
-#Source0:	http://cvs.zope.org/CMF/%{zope_subname}/%{zope_subname}.tar.gz?tarball=1
-Source0:	%{zope_subname}.tar.gz
-# Source0-md5:	151c906d1058115f3f98155ec042f8fe
-URL:		http://cvs.zope.org/CMF/%{zope_subname}/
+#Source0:	%{zope_subname}.tar.gz
+Source0:	http://zope.org/Members/bowerymarc/%{zope_subname}-update/%{version}/%{zope_subname}.%{version}.tgz
+# Source0-md5:	e8daa9e88959edc4e6e8cc03ae23abfa
+URL:		http://zope.org/Members/bowerymarc/CMFCollector-update/
 %pyrequires_eq	python-modules
 Requires:	Zope-CMF >= 1.2
 Requires:	Zope >= 2.4
@@ -27,12 +27,13 @@ CMFCollector jest dodatkiem do Zope umo¿liwiaj±cym zbieranie wyników.
 
 %prep
 %setup -q -n %{zope_subname}
+find . -type f -name .DS_Store | xargs rm -rf
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-cp -af {Extensions,dtml,help,skins,tests,*.py,*.zexp,version.txt} $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -af {Extensions,dtml,help,image_sources,skins,tests,*.py,*.zexp,version.txt} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
