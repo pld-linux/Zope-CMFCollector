@@ -34,10 +34,17 @@ CMFCollector jest dodatkiem do Zope umo¿liwiaj±cy zbieranie wyników
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 install -d $RPM_BUILD_ROOT%{zope_lib}
 install -d $RPM_BUILD_ROOT%{product_dir}
 cp -af * $RPM_BUILD_ROOT%{zope_lib}/%{zope_subname}
+
+%py_comp $RPM_BUILD_ROOT%{zope_lib}/%{zope_subname}
+%py_ocomp $RPM_BUILD_ROOT%{zope_lib}/%{zope_subname}
+
 rm -rf $RPM_BUILD_ROOT%{zope_lib}/%{zope_subname}/*.txt
+find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
+
 ln -s %{zope_lib}/%{zope_subname}/ $RPM_BUILD_ROOT%{product_dir}
 
 %clean
@@ -58,5 +65,5 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc %{zope_subname}/*.txt
-%{zope_lib}
+%{zope_lib}/%{zope_subname}
 %{product_dir}
