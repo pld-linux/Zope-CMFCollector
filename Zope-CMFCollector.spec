@@ -5,9 +5,8 @@ Summary(pl):	Dodatek do Zope umo¿liwiaj±cy zbieranie wyników
 Name:		Zope-%{zope_subname}
 Version:	0.92
 Release:	1
-License:	ZPL 2.0
+License:	GPL
 Group:		Development/Tools
-#Source0:	%{zope_subname}.tar.gz
 Source0:	http://zope.org/Members/bowerymarc/%{zope_subname}-update/%{version}/%{zope_subname}.%{version}.tgz
 # Source0-md5:	e8daa9e88959edc4e6e8cc03ae23abfa
 URL:		http://zope.org/Members/bowerymarc/CMFCollector-update/
