@@ -16,6 +16,7 @@ URL:		http://cvs.zope.org/CMF/%{zope_subname}/
 %pyrequires_eq	python-modules
 Requires:	Zope
 Requires:	CMF
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	product_dir	/usr/lib/zope/Products
