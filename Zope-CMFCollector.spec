@@ -8,19 +8,11 @@ License:	GNU
 Group:		Development/Tools
 Source0:	http://cvs.zope.org/CMF/%{zope_subname}/%{zope_subname}.tar.gz?tarball=1
 # Source0-md5:	151c906d1058115f3f98155ec042f8fe
-
 URL:		http://cvs.zope.org/CMF/%{zope_subname}/
-Requires:	python >= 2.2
-Requires:	python-modules >= 2.2
-Requires:	python-libs >= 2.2
+pyrequires_eq:	python-modules
 Requires:	Zope
 Requires:	CMF
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-# define	python_prefix           %(echo `python -c "import sys; print sys.prefix"`)
-# define        python_version          %(echo `python -c "import sys; print sys.version[:3]"`)
-# define        python_libdir           %{python_prefix}/lib/python%{python_version}
-# define        python_sitedir          %{python_libdir}/site-packages
 
 %define		zope_lib	/usr/lib/zope/Addons
 %define 	product_dir	/usr/lib/zope/Products
