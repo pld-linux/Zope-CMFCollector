@@ -4,7 +4,7 @@ Summary:	An issue collector for Zopei
 Summary(pl):	Dodatek do Zope umo¿liwiaj±cy zbieranie wyników
 Name:		Zope-%{zope_subname}
 Version:	0.9b
-Release:	7
+Release:	8
 License:	ZPL 2.0
 Group:		Development/Tools
 #Source0:	http://cvs.zope.org/CMF/%{zope_subname}/%{zope_subname}.tar.gz?tarball=1
@@ -32,8 +32,7 @@ CMFCollector jest dodatkiem do Zope umo¿liwiaj±cym zbieranie wyników.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-# should tests be included or not?
-cp -af {Extensions,dtml,skins,tests,*.py,*.zexp} $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -af {Extensions,dtml,help,skins,tests,*.py,*.zexp,version.txt} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -59,5 +58,5 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc INSTALL.txt KNOWN_PROBLEMS.txt README.txt TODO.txt
+%doc INSTALL.txt KNOWN_PROBLEMS.txt README.txt TODO.txt RELEASE_NOTES.txt
 %{_datadir}/%{name}
