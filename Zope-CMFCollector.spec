@@ -1,10 +1,7 @@
-
 %include	/usr/lib/rpm/macros.python
-
 %define		zope_subname	CMFCollector
-
-Summary:	CMFCollector is an issue collector for Zope.
-Summary(pl):	CMFCollector jest dodatkiem do Zope umo¿liwiaj±cy zbieranie wyników
+Summary:	CMFCollector - an issue collector for Zope
+Summary(pl):	CMFCollector - dodatek do Zope umo¿liwiaj±cy zbieranie wyników
 Name:		Zope-%{zope_subname}
 Version:	0.9b
 Release:	1
@@ -15,8 +12,8 @@ Source0:	%{zope_subname}.tar.gz
 # Source0-md5:	151c906d1058115f3f98155ec042f8fe
 URL:		http://cvs.zope.org/CMF/%{zope_subname}/
 %pyrequires_eq	python-modules
-Requires:	Zope
 Requires:	CMF
+Requires:	Zope
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,17 +23,15 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 CMFCollector is an issue collector for Zope.
 
 %description -l pl
-CMFCollector jest dodatkiem do Zope umo¿liwiaj±cy zbieranie wyników
+CMFCollector jest dodatkiem do Zope umo¿liwiaj±cym zbieranie wyników.
 
 %prep
 %setup -q -c %{zope_subname}.tar.gz
 
-%build
-
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT%{product_dir}
+
 cp -af * $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
 %py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
@@ -52,8 +47,6 @@ rm -rf $RPM_BUILD_ROOT
 if [ -f /var/lock/subsys/zope ]; then
 	/etc/rc.d/init.d/zope restart >&2
 fi
-
-%preun
 
 %postun
 if [ -f /var/lock/subsys/zope ]; then
