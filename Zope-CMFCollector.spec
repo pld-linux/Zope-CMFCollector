@@ -3,14 +3,14 @@ Summary:	An issue collector for Zopei
 Summary(pl):	Dodatek do Zope umo¿liwiaj±cy zbieranie wyników
 Name:		Zope-%{zope_subname}
 Version:	0.93
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Tools
 Source0:	http://zope.org/Members/bowerymarc/%{zope_subname}-update/%{version}/%{zope_subname}.%{version}.tgz
 # Source0-md5:	742fc8c28c073311b00b5104ff75c26f
 URL:		http://zope.org/Members/bowerymarc/CMFCollector-update/
 %pyrequires_eq	python-modules
-Requires:	Zope-CMF >= 1.2
+Requires:	Zope-CMF >= 1:1.4
 Requires:	Zope >= 2.4
 Requires(post,postun):	/usr/sbin/installzopeproduct
 BuildArch:	noarch
