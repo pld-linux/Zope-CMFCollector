@@ -18,7 +18,6 @@ Requires:	Zope
 Requires:	CMF
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		zope_lib	/usr/lib/zope/Addons
 %define 	product_dir	/usr/lib/zope/Products
 
 %description
@@ -35,17 +34,14 @@ CMFCollector jest dodatkiem do Zope umo¿liwiaj±cy zbieranie wyników
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{zope_lib}
 install -d $RPM_BUILD_ROOT%{product_dir}
-cp -af * $RPM_BUILD_ROOT%{zope_lib}/%{zope_subname}
+cp -af * $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
-%py_comp $RPM_BUILD_ROOT%{zope_lib}/%{zope_subname}
-%py_ocomp $RPM_BUILD_ROOT%{zope_lib}/%{zope_subname}
+%py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+%py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
-rm -rf $RPM_BUILD_ROOT%{zope_lib}/%{zope_subname}/*.txt
+rm -rf $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/*.txt
 find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
-
-ln -s %{zope_lib}/%{zope_subname}/ $RPM_BUILD_ROOT%{product_dir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -65,5 +61,4 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc %{zope_subname}/*.txt
-%{zope_lib}/%{zope_subname}
-%{product_dir}
+%{product_dir}/%{zope_subname}
