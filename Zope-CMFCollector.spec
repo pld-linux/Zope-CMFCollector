@@ -1,4 +1,8 @@
+
+%include	/usr/lib/rpm/macros.python
+
 %define		zope_subname	CMFCollector
+
 Summary:	CMFCollector is an issue collector for Zope.
 Summary(pl):	CMFCollector jest dodatkiem do Zope umo¿liwiaj±cy zbieranie wyników
 Name:		Zope-%{zope_subname}
