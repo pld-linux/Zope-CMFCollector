@@ -1,10 +1,10 @@
 %include	/usr/lib/rpm/macros.python
 %define		zope_subname	CMFCollector
-Summary:	CMFCollector - an issue collector for Zope
-Summary(pl):	CMFCollector - dodatek do Zope umo¿liwiaj±cy zbieranie wyników
+Summary:	An issue collector for Zopei
+Summary(pl):	Dodatek do Zope umo¿liwiaj±cy zbieranie wyników
 Name:		Zope-%{zope_subname}
 Version:	0.9b
-Release:	6
+Release:	7
 License:	ZPL 2.0
 Group:		Development/Tools
 #Source0:	http://cvs.zope.org/CMF/%{zope_subname}/%{zope_subname}.tar.gz?tarball=1
@@ -14,11 +14,10 @@ URL:		http://cvs.zope.org/CMF/%{zope_subname}/
 %pyrequires_eq	python-modules
 Requires:	Zope-CMF >= 1.2
 Requires:	Zope >= 2.4
+Requires(post,postun):  /usr/sbin/installzopeproduct
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Conflicts:	CMF
-
-%define 	product_dir	/usr/lib/zope/Products
 
 %description
 CMFCollector is an issue collector for Zope.
@@ -31,13 +30,13 @@ CMFCollector jest dodatkiem do Zope umo¿liwiaj±cym zbieranie wyników.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/help
+install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 # should tests be included or not?
-cp -af {Extensions,dtml,skins,tests,*.py,*.zexp} $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+cp -af {Extensions,dtml,skins,tests,*.py,*.zexp} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-%py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
-%py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+%py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
+%py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 # find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
 
@@ -45,16 +44,20 @@ cp -af {Extensions,dtml,skins,tests,*.py,*.zexp} $RPM_BUILD_ROOT%{product_dir}/%
 rm -rf $RPM_BUILD_ROOT
 
 %post
+/usr/sbin/installzopeproduct %{_datadir}/%{name} %{zope_subname}
 if [ -f /var/lock/subsys/zope ]; then
 	/etc/rc.d/init.d/zope restart >&2
 fi
 
 %postun
-if [ -f /var/lock/subsys/zope ]; then
-	/etc/rc.d/init.d/zope restart >&2
+if [ "$1" = "0" ]; then
+        /usr/sbin/installzopeproduct -d %{zope_subname}
+        if [ -f /var/lock/subsys/zope ]; then
+                /etc/rc.d/init.d/zope restart >&2
+        fi
 fi
 
 %files
 %defattr(644,root,root,755)
 %doc INSTALL.txt KNOWN_PROBLEMS.txt README.txt TODO.txt
-%{product_dir}/%{zope_subname}
+%{_datadir}/%{name}
