@@ -9,7 +9,7 @@ Group:		Development/Tools
 Source0:	http://zope.org/Members/bowerymarc/%{zope_subname}-update/%{version}/%{zope_subname}.%{version}.tgz
 # Source0-md5:	742fc8c28c073311b00b5104ff75c26f
 URL:		http://zope.org/Members/bowerymarc/CMFCollector-update/
-BuildRequires:  python
+BuildRequires:	python
 %pyrequires_eq	python-modules
 Requires:	Zope-CMF >= 1:1.4
 Requires:	Zope >= 2.4
