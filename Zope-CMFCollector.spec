@@ -12,7 +12,7 @@ URL:		http://zope.org/Members/bowerymarc/CMFCollector-update/
 %pyrequires_eq	python-modules
 Requires:	Zope-CMF >= 1.2
 Requires:	Zope >= 2.4
-Requires(post,postun):  /usr/sbin/installzopeproduct
+Requires(post,postun):	/usr/sbin/installzopeproduct
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Conflicts:	CMF
@@ -49,10 +49,10 @@ fi
 
 %postun
 if [ "$1" = "0" ]; then
-        /usr/sbin/installzopeproduct -d %{zope_subname}
-        if [ -f /var/lock/subsys/zope ]; then
-                /etc/rc.d/init.d/zope restart >&2
-        fi
+	/usr/sbin/installzopeproduct -d %{zope_subname}
+	if [ -f /var/lock/subsys/zope ]; then
+		/etc/rc.d/init.d/zope restart >&2
+	fi
 fi
 
 %files
