@@ -13,7 +13,7 @@ Group:		Development/Tools
 Source0:	http://cvs.zope.org/CMF/%{zope_subname}/%{zope_subname}.tar.gz?tarball=1
 # Source0-md5:	151c906d1058115f3f98155ec042f8fe
 URL:		http://cvs.zope.org/CMF/%{zope_subname}/
-pyrequires_eq	python-modules
+%pyrequires_eq	python-modules
 Requires:	Zope
 Requires:	CMF
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
