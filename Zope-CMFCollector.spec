@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.python
 %define		zope_subname	CMFCollector
 Summary:	An issue collector for Zopei
 Summary(pl):	Dodatek do Zope umo¿liwiaj±cy zbieranie wyników
