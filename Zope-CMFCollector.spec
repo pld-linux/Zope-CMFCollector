@@ -4,7 +4,7 @@ Summary:	CMFCollector - an issue collector for Zope
 Summary(pl):	CMFCollector - dodatek do Zope umo¿liwiaj±cy zbieranie wyników
 Name:		Zope-%{zope_subname}
 Version:	0.9b
-Release:	2
+Release:	3
 License:	ZPL 2.0
 Group:		Development/Tools
 #Source0:	http://cvs.zope.org/CMF/%{zope_subname}/%{zope_subname}.tar.gz?tarball=1
@@ -12,7 +12,7 @@ Source0:	%{zope_subname}.tar.gz
 # Source0-md5:	151c906d1058115f3f98155ec042f8fe
 URL:		http://cvs.zope.org/CMF/%{zope_subname}/
 %pyrequires_eq	python-modules
-Requires:	CMF >= 1.2
+Requires:	Zope-CMF >= 1.2
 Requires:	Zope >= 2.4
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
