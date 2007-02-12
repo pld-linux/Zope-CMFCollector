@@ -1,6 +1,6 @@
 %define		zope_subname	CMFCollector
 Summary:	An issue collector for Zopei
-Summary(pl.UTF-8):   Dodatek do Zope umożliwiający zbieranie wyników
+Summary(pl.UTF-8):	Dodatek do Zope umożliwiający zbieranie wyników
 Name:		Zope-%{zope_subname}
 Version:	0.93
 Release:	3
