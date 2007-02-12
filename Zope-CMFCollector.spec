@@ -1,6 +1,6 @@
 %define		zope_subname	CMFCollector
 Summary:	An issue collector for Zopei
-Summary(pl):	Dodatek do Zope umo¿liwiaj±cy zbieranie wyników
+Summary(pl.UTF-8):   Dodatek do Zope umoÅ¼liwiajÄ…cy zbieranie wynikÃ³w
 Name:		Zope-%{zope_subname}
 Version:	0.93
 Release:	3
@@ -22,8 +22,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 CMFCollector is an issue collector for Zope.
 
-%description -l pl
-CMFCollector jest dodatkiem do Zope umo¿liwiaj±cym zbieranie wyników.
+%description -l pl.UTF-8
+CMFCollector jest dodatkiem do Zope umoÅ¼liwiajÄ…cym zbieranie wynikÃ³w.
 
 %prep
 %setup -q -n %{zope_subname}
